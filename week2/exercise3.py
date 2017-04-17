@@ -9,7 +9,8 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    pass
+    return a_number % 2 != 0
+
 
 
 def fix_it(moves=True, should_move=True):
@@ -23,7 +24,14 @@ def fix_it(moves=True, should_move=True):
     "Duct Tape"
     "No Problem"
     """
-    pass
+    if moves==True and should_move==True:
+        return ("No Problem")
+    elif moves==True and should_move==False:
+        return ("Duct Tape")
+    elif moves==False and should_move==True:
+        return ("WD-40")
+    else:
+        return ("No Problem")
 
 
 def loops_1a():
@@ -33,8 +41,11 @@ def loops_1a():
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    pass
+    star_list = []
+    for x in range(10):
+        star_list.append("*")
 
+    return(star_list)
 
 def star_map():
     """Use a map to make stars and bangs.
@@ -44,10 +55,16 @@ def star_map():
     if it's even. Reuse the is odd function that you've already written.
     E.g.: ["!", "*", "!", "*", "!", "*", "!", "*", "!", "*"]
     """
-    pass
+    def starmapping(a_number):
+        if is_odd(a_number):
+            return("*")
+        else:
+            return("!")
+
+    return map(starmapping, range(10))
 
 
-def loops_1c(number_of_items=5, symbol="#"):
+def loops_1c(number_of_items, symbol):
     """Respond to variables.
 
     using any method
@@ -55,7 +72,12 @@ def loops_1c(number_of_items=5, symbol="#"):
     a string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    pass
+    hash_list = []
+    for x in range(number_of_items):
+        hash_list.append(symbol)
+
+    return(hash_list)
+
 
 
 def loops_2():
@@ -76,7 +98,14 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    pass
+    star_list1 = []
+    for x in range(10):
+        star_list1.append("*")
+    star_list2 = []
+    for x in range(10):
+        star_list2.append(star_list1)
+
+    return star_list2
 
 
 def loops_3():
@@ -100,7 +129,10 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    pass
+    number_list = []
+    for x in range(10):
+        number_list.append([str(x)]*10)
+    return number_list
 
 
 def loops_4():
@@ -118,7 +150,13 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    pass
+    number_square = []
+    for i in range(10):
+        number_row = []
+        for j in range(10):
+            number_row.append(str(j))
+        number_square.append(number_row)
+    return number_square
 
 
 def loops_5():
@@ -143,8 +181,14 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    pass
 
+    coordinate_square = []
+    for i in range(10):
+        coordinate_row = []
+        for j in range(5):
+            coordinate_row.append("("+"i"+str(i)+","+"j"+str(j)+")")
+        coordinate_square.append(coordinate_row)
+    return(coordinate_square)
 
 def loops_6():
     """Make a wedge of numbers.
@@ -166,7 +210,13 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    pass
+    number_triangle = []
+    for x in range(10):
+        number_row = []
+        for y in range(x+1):
+            number_row.append(str(y))
+        number_triangle.append(number_row)
+    return number_triangle
 
 
 def loops_7():
@@ -190,7 +240,16 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    pass
+    pyramid = []
+    for x in range(5):
+        pyramid_row = []
+        pyramid_row.append(str(" ")*(5-(x+1)))
+        pyramid_row.append("*"*(x+1+x))
+        pyramid_row.append(str(" ")*(5-(x+1)))
+        pyramid.append(pyramid_row)
+    return pyramid
+
+
 
 
 def lp(some_kind_of_list, exercise_name):
@@ -220,15 +279,15 @@ if __name__ == "__main__":
     # It's NOT the official tests, they are in tests.py as usual.
     # Add to these tests, give them arguments etc. to make sure that your
     # code is robust to the situations that you'll see in action.
-    print(is_odd(1), "is_odd odd")
+    print(is_odd(1), "is odd")
     print(is_odd(4), "is_odd even")
-    print(fix_it(True, True), "fix_it")
-    print(fix_it(True, False), "fix_it")
-    print(fix_it(False, True), "fix_it")
-    print(fix_it(False, False), "fix_it")
+    print(fix_it(True, True), "No Problem")
+    print(fix_it(True, False), "Duct Tape")
+    print(fix_it(False, True), "WD-40")
+    print(fix_it(False, False), "No Problem")
     lp(loops_1a(), "loops_1a")
     lp(star_map(), "star_map")
-    lp(loops_1c(4, "×°×"), "loops_1c")
+    lp(loops_1c(5, "#"), "loops_1c")
     lp(loops_2(), "loops_2")
     lp(loops_3(), "loops_3")
     lp(loops_4(), "loops_4")
