@@ -243,10 +243,11 @@ def loops_7():
     pyramid = []
     for x in range(5):
         pyramid_row = []
-        pyramid_row.append(str(" ")*(5-(x+1)))
-        pyramid_row.append("*"*(x+1+x))
-        pyramid_row.append(str(" ")*(5-(x+1)))
+        pyramid_row.append(str(' ')*(5-(x+1)))
+        pyramid_row.append('*'*(x+1+x))
+        pyramid_row.append(str('')*(5-(x+1)))
         pyramid.append(pyramid_row)
+    print (pyramid)
     return pyramid
 
 
