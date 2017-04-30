@@ -186,9 +186,10 @@ def loops_5():
     for i in range(10):
         coordinate_row = []
         for j in range(5):
-            coordinate_row.append("("+"i"+str(i)+","+"j"+str(j)+")")
+            coordinate_row.append("("+"i"+str(i)+", "+"j"+str(j)+")")
         coordinate_square.append(coordinate_row)
     return(coordinate_square)
+    print (coordinate_square)
 
 def loops_6():
     """Make a wedge of numbers.
