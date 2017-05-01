@@ -27,12 +27,32 @@ def binary_search(low, high, actual_number):
       (You should remove them from the file, not comment them out, the
       tests aren't that smart yet.)
     """
-    return {"guess": guess, "tries": tries}
+    #import math
+    guessed = False
+    i = 0
+    while not guessed:
+        guessedNumber = int(round((low+high)/2))
+        print("pc guessed " + str(guessedNumber))
+        i += 1
+        if guessedNumber == actual_number:
+            #print("Nailed it")
+            guessResult = {"guess": guessedNumber, "tries": i}
+            print(guessResult)
+            break
+        elif guessedNumber < actual_number:
+            low = int(guessedNumber)
+            continue
+        elif guessedNumber > actual_number:
+            high = int(guessedNumber)
+            continue
+        else:
+            break
+
 
 
 if __name__ == "__main__":
     print(binary_search(1, 100, 5))
     print(binary_search(1, 100, 6))
-    print(binary_search(1, 100, 95))
-    print(binary_search(1, 51, 5))
-    print(binary_search(1, 50, 5))
+    #print(binary_search(1, 100, 95))
+    #print(binary_search(1, 51, 5))
+    #print(binary_search(1, 50, 5))

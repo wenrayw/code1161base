@@ -56,7 +56,7 @@ def advancedGuessingGame():
     while not guessed:
         while True:
             guessedNumber = raw_input("guess a valid number: ")
-            if str(guessedNumber).isdigit():
+            if str(guessedNumber).isdigit():paint
                 break
 
         print("you guessed {},".format(guessedNumber),)
