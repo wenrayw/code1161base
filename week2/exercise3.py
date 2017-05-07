@@ -12,7 +12,6 @@ def is_odd(a_number):
     return a_number % 2 != 0
 
 
-
 def fix_it(moves=True, should_move=True):
     """Decide what to do.
 

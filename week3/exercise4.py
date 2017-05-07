@@ -35,7 +35,6 @@ def binary_search(low, high, actual_number):
         print("pc guessed " + str(guessedNumber))
         i += 1
         if guessedNumber == actual_number:
-            #print("Nailed it")
             guessResult = {"guess": guessedNumber, "tries": i}
             print(guessResult)
             break

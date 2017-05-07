@@ -43,18 +43,19 @@ def gene_krupa_range(start, stop, even_step, odd_step):
     while True:
         loop_list = []
         i = 1
-        if start < stop:
+        if int(start) < int(stop):
             loop_list.append(start)
-            if i % 2 == False:
+            if i % 2 != 0:
                 start = start + odd_step
                 i = i+1
+                continue
             else:
                 start = start + even_step
                 i = i+1
+                continue
         else:
             return loop_list
-            break
-
+    return loop_list
 
 def stubborn_asker(low, high):
     """Ask for a number between low and high until actually given one.
@@ -100,6 +101,6 @@ if __name__ == "__main__":
     print("\nstubborn_asker")
     stubborn_asker(30, 45)
     print("\nnot_number_rejector")
-    not_number_rejector()
+    #not_number_rejector()
     print("\nsuper_asker")
     super_asker(33, 42)

@@ -41,7 +41,7 @@ def advancedGuessingGame():
         upperBound = raw_input("Please enter an upper bound which is a valid integer: ")
         if str(upperBound).isdigit() and int(upperBound) > int(lowerBound):
             break
-    #while upperBound <= lowerBound:
+    #    while upperBound <= lowerBound:
     #    upperBound = raw_input("Enter a number higher than lower bound: ")
     #    if upperBound >= lowerBound:
     #        break
