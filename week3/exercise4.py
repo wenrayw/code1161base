@@ -27,23 +27,22 @@ def binary_search(low, high, actual_number):
       (You should remove them from the file, not comment them out, the
       tests aren't that smart yet.)
     """
-    #import math
+    import math
+
     guessed = False
-    i = 0
+    i = -1
     while not guessed:
-        guessedNumber = int(round((low+high)/2))
+        guessedNumber = int(math.floor((low+high)/2))
         print("pc guessed " + str(guessedNumber))
         i += 1
         if guessedNumber == actual_number:
             guessResult = {"guess": guessedNumber, "tries": i}
-            print(guessResult)
+            return guessResult
             break
         elif guessedNumber < actual_number:
-            low = int(guessedNumber)
-            continue
+            low = int(guessedNumber + 1)
         elif guessedNumber > actual_number:
-            high = int(guessedNumber)
-            continue
+            high = int(guessedNumber - 1)
         else:
             break
 

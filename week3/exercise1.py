@@ -40,22 +40,19 @@ def gene_krupa_range(start, stop, even_step, odd_step):
     make a list that instead of having evenly spaced steps
     has odd steps be one size and even steps be another.
     """
-    while True:
-        loop_list = []
-        i = 1
-        if int(start) < int(stop):
-            loop_list.append(start)
-            if i % 2 != 0:
-                start = start + odd_step
-                i = i+1
-                continue
-            else:
-                start = start + even_step
-                i = i+1
-                continue
+    first = start
+    loop_list = []
+    i = 0
+    while first < stop:
+        loop_list.append(first)
+        if i % 2 != 0:
+            first = first + odd_step
+            i += 1
         else:
-            return loop_list
+            first = first + even_step
+            i += 1
     return loop_list
+
 
 def stubborn_asker(low, high):
     """Ask for a number between low and high until actually given one.
@@ -63,7 +60,11 @@ def stubborn_asker(low, high):
     Ask for a number, and if the response is outside the bounds keep asking
     until you get a number that you think is OK
     """
-    pass
+    while True:
+        ask = raw_input("Choose a number")
+        if int(ask) < high and int(ask) > low:
+            return ask
+            break
 
 
 def not_number_rejector(message):
@@ -73,7 +74,11 @@ def not_number_rejector(message):
     "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    pass
+    while True:
+        hello = raw_input("Is it a number?")
+        if str(hello).isdigit():
+            break
+    return hello
 
 
 def super_asker(low, high):
@@ -82,7 +87,16 @@ def super_asker(low, high):
     Combine stubborn_asker and not_number_rejector to make a function
     that does it all!
     """
-    pass
+    while True:
+        meep = raw_input("Choose a legit number")
+        if str(meep).isdigit():
+            if int(meep) < high and int(meep) > low:
+                return meep
+                break
+            else:
+                continue
+        else:
+            continue
 
 
 if __name__ == "__main__":

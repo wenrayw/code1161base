@@ -16,26 +16,26 @@ from __future__ import print_function
 import json
 
 
-def be_cool(name):
+def be_awesome(name):
     """Just print, not actually doing any IO."""
-    print(name + " is cool")
+    print(name + " is awesome")
 
 
-be_cool("Ben")
+be_awesome("Wenray")
 
 
-def be_cool_for_ever(name, file_path):
-    """Save a message about being cool for ever."""
+def be_awesome_for_ever(name, file_path):
+    """Save a message about being awesome for ever."""
     mode = "w"  # from the docs
     history_book = open(file_path, mode)
-    history_book.write(name + " is cool")
+    history_book.write(name + " is awesome")
     history_book.close()
 
 
-be_cool_for_ever("Ben", "ben_is_cool.txt")
+be_awesome_for_ever("Wenray", "wenray_is_awesome.txt")
 
 
-def who_is_cool(file_path):
+def who_is_awesome(file_path):
     """Read a file and print what it says."""
     mode = "r"  # from the docs
     history_book = open(file_path, mode)
@@ -45,13 +45,14 @@ def who_is_cool(file_path):
     history_book.close()
 
 
-who_is_cool("ben_is_cool.txt")
+who_is_awesome("wenray_is_awesome.txt")
 
 
 # some JSON examples:
 
 
 def bury_time_capsule(something_for_your_kids_to_find, file_path):
+    """Json = javascript object notation."""
     dumped = json.dumps(something_for_your_kids_to_find)
     mode = "w"  # from the docs
     time_capsule = open(file_path, mode)
@@ -73,12 +74,17 @@ bury_time_capsule(message_for_capsule, "under_the_patio.json")
 
 
 def dig_up_capsule(file_path):
+    """Sending straight to file_path because you.
+
+    Don't know what you're going to get.
+    """
     mode = "r"  # from the docs
     time_capsule = open(file_path, mode)
     contents = json.load(time_capsule)
     template = """{Greeting},\nDid you know that in {Year}, "{Fact}" was still true!
                """
     print(template.format(**contents))
+    # two stars is to dig up dictionary
     time_capsule.close()
 
 

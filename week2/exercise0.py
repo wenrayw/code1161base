@@ -5,8 +5,6 @@ from __future__ import print_function
 
 
 def add_5(a_number):
-    return 5 + a_number
-
     """Return a number that is 5 bigger than number given.
 
     This isn't a trick!
@@ -17,21 +15,18 @@ def add_5(a_number):
         return a_number plus five
     except expressed in python, not english
     """
-    pass
+    return 5 + a_number
 
 
 def adder(a_number, another_number):
-    return a_number + another_number
     """Add two numbers.
 
     Same as above, but with any two numbers.
     """
-    pass
+    return a_number + another_number
 
 
 def shout(a_string):
-    return a_string.upper()
-
     """Return a string in uppercase.
 
     look up the docs for string methods. Either in the official docs, here:
@@ -39,18 +34,17 @@ def shout(a_string):
     or in any of the million places that google will give you.
     "python make a string uppercase" is a good starting search query.
     """
-    pass
+    return a_string.upper()
 
 
 def really_shout(a_string):
-    return a_string.upper()+"!"
     """Return a string in uppercase, with an exclamation mark on the end.
 
     In the spirit of being DRY (don't repeat yourself) reuse the shout function
     from above.
     Look up how to 'concatinate' strings to make this happen.
     """
-    pass
+    return a_string.upper()+"!"
 
 
 def minitest(f, args, expected):

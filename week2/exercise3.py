@@ -23,11 +23,11 @@ def fix_it(moves=True, should_move=True):
     "Duct Tape"
     "No Problem"
     """
-    if moves==True and should_move==True:
+    if moves is True and should_move is True:
         return ("No Problem")
-    elif moves==True and should_move==False:
+    elif moves is True and should_move is False:
         return ("Duct Tape")
-    elif moves==False and should_move==True:
+    elif moves is False and should_move is True:
         return ("WD-40")
     else:
         return ("No Problem")
@@ -45,6 +45,7 @@ def loops_1a():
         star_list.append("*")
 
     return(star_list)
+
 
 def star_map():
     """Use a map to make stars and bangs.
@@ -76,7 +77,6 @@ def loops_1c(number_of_items, symbol):
         hash_list.append(symbol)
 
     return(hash_list)
-
 
 
 def loops_2():
@@ -180,7 +180,6 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-
     coordinate_square = []
     for i in range(10):
         coordinate_row = []
@@ -189,6 +188,7 @@ def loops_5():
         coordinate_square.append(coordinate_row)
     return(coordinate_square)
     print (coordinate_square)
+
 
 def loops_6():
     """Make a wedge of numbers.
@@ -243,14 +243,12 @@ def loops_7():
     pyramid = []
     for x in range(5):
         pyramid_row = []
-        pyramid_row.append(str(' ')*(5-(x+1)))
-        pyramid_row.append('*'*(x+1+x))
-        pyramid_row.append(str('')*(5-(x+1)))
-        pyramid.append(pyramid_row)
-    print (pyramid)
+        pyramid_row.extend(' '*(5-(x+1)))
+        pyramid_row.extend('*'*(x+1+x))
+        pyramid_row.extend(' '*(5-(x+1)))
+        pyramid.append(list(pyramid_row))
+        print(pyramid_row)
     return pyramid
-
-
 
 
 def lp(some_kind_of_list, exercise_name):
