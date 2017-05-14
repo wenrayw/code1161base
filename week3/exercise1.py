@@ -15,8 +15,6 @@ def loop_ranger(start, stop=None, step=1):
     return range(start, stop, step)
 
 
-
-
 def lone_ranger(start, stop, step):
     """Duplicate the functionality of range.
 
@@ -115,6 +113,6 @@ if __name__ == "__main__":
     print("\nstubborn_asker")
     stubborn_asker(30, 45)
     print("\nnot_number_rejector")
-    #not_number_rejector()
+    # not_number_rejector()
     print("\nsuper_asker")
     super_asker(33, 42)

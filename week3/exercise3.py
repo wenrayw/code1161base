@@ -4,8 +4,8 @@ Steps on the way to making your own guessing game.
 """
 from __future__ import division
 from __future__ import print_function
-from exercise1 import not_number_rejector
-from exercise1 import super_asker
+# from exercise1 import not_number_rejector
+# from exercise1 import super_asker
 import random
 
 
@@ -28,28 +28,33 @@ def advancedGuessingGame():
     Remember to think modular. Try to keep your functions small and single
     purpose if you can!
     """
-
     print("\nwelcome to the advanced guessing game!")
     print("A number between _ and _ ?")
-    # lowerBound = raw_input("Enter a lower bound: ")
-    # upperBound = raw_input("Enter an upper bound: ")
+    # low = raw_input("Enter a lower bound: ")
+    # high = raw_input("Enter an upper bound: ")
     while True:
-        lowerBound = raw_input("Please enter a lower bound which is a valid integer: ")
-        if str(lowerBound).isdigit():
+        low = raw_input(
+            "Please enter a lower bound which is a valid integer: "
+        )
+        if str(low).isdigit():
             break
     while True:
-        upperBound = raw_input("Please enter an upper bound which is a valid integer: ")
-        if str(upperBound).isdigit() and int(upperBound) > int(lowerBound):
+        high = raw_input(
+            "Please enter an upper bound which is a valid integer: "
+        )
+        if str(high).isdigit() and int(high) > int(low):
             break
-    #    while upperBound <= lowerBound:
-    #    upperBound = raw_input("Enter a number higher than lower bound: ")
-    #    if upperBound >= lowerBound:
+    #    while high <= low:
+    #    high = raw_input("Enter a number higher than lower bound: ")
+    #    if high >= low:
     #        break
-    print("OK then, a number between {} and {} ?".format(lowerBound,upperBound))
-    lowerBound = int(lowerBound)
-    upperBound = int(upperBound)
+    print(
+        "OK then, a number between {} and {} ?".format(low, high)
+        )
+    low = int(low)
+    high = int(high)
 
-    actualNumber = random.randint(lowerBound, upperBound)
+    actualNumber = random.randint(low, high)
 
     guessed = False
 
@@ -62,10 +67,10 @@ def advancedGuessingGame():
         print("you guessed {},".format(guessedNumber),)
 
         while True:
-            if str(guessedNumber).isdigit() == False:
+            if str(guessedNumber).isdigit() is False:
                 guessedNumber = raw_input("Guess a valid integer pls: ")
-            elif int(guessedNumber) < lowerBound or int(guessedNumber) > upperBound:
-                guessedNumber = raw_input("That's outside of the range. Guess again: ")
+            elif int(guessedNumber) < low or int(guessedNumber) > high:
+                guessedNumber = raw_input("Outside range. Guess again: ")
             else:
                 break
 

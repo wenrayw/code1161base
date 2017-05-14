@@ -27,8 +27,6 @@ def binary_search(low, high, actual_number):
       (You should remove them from the file, not comment them out, the
       tests aren't that smart yet.)
     """
-    import math
-
     guessed = False
     i = -1
     while not guessed:
@@ -47,10 +45,9 @@ def binary_search(low, high, actual_number):
             break
 
 
-
 if __name__ == "__main__":
     print(binary_search(1, 100, 5))
     print(binary_search(1, 100, 6))
-    #print(binary_search(1, 100, 95))
-    #print(binary_search(1, 51, 5))
-    #print(binary_search(1, 50, 5))
+    # print(binary_search(1, 100, 95))
+    # print(binary_search(1, 51, 5))
+    # print(binary_search(1, 50, 5))
