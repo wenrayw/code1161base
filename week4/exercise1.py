@@ -25,10 +25,20 @@ def success_is_relative():
     TIP: check that there ins't unwanted whitespace or line endings in the
          response. Look into .strip() and see what it does.
     """
+    mode = "r"
+    file_path = "week1/pySuccessMessage.json"
+    thing = open(file_path, mode)
+    contents = thing.read()
     # this depends on excecution context. Take a look at your CWD and remember
     # that it changes.
     # print(path, CWD)
-    pass
+    thing.close()
+    # print(contents)
+    # print(str(contents).strip())
+    return str(contents).strip()
+
+
+success_is_relative()
 
 
 def get_some_details():
@@ -50,10 +60,16 @@ def get_some_details():
     json_data = open(LOCAL + "/lazyduck.json").read()
 
     data = json.loads(json_data)
-    return {"lastName":       None,
-            "password":       None,
-            "postcodePlusID": None
-            }
+    return({
+            "lastName": data["results"][0]["name"]["last"],
+            "password": data["results"][0]["login"]["password"],
+            "postcodePlusID": int(
+                                    data["results"][0]["location"]["postcode"]
+                                    ) + int(data["results"][0]["id"]["value"])
+            })
+
+
+get_some_details()
 
 
 def wordy_pyramid():
@@ -88,7 +104,24 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. ?len=
     """
-    pass
+    pyramid_list = []
+    for i in range(3, 21, 2):
+        url = "http://setgetgo.com/randomword/get.php?len=" + str(i)
+        req = requests.get(url)
+        word = req.text
+        pyramid_list.append(word)
+    url = "http://setgetgo.com/randomword/get.php?len=20"
+    req = requests.get(url)
+    word = req.text
+    pyramid_list.append(word)
+    for i in range(20, 3, -2):
+        url = "http://setgetgo.com/randomword/get.php?len=" + str(i)
+        req = requests.get(url)
+        word = req.text
+        pyramid_list.append(word)
+    return(pyramid_list)
+
+
 
 
 def wunderground():
